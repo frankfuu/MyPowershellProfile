@@ -1,10 +1,11 @@
-# To use
+# To use Powershelll Profile
 
+Find path to `$PROFILE`
 ```
 echo $PROFILE
 ```
 
-Then paste contents of `Microsoft.Powershell_profile.ps1` with the file in the directory printed above
+Paste contents of `Microsoft.Powershell_profile.ps1` to the result printed above
 
 # Install other 
 
