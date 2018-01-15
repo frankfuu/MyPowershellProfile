@@ -7,6 +7,10 @@ echo $PROFILE
 
 Paste contents of `Microsoft.Powershell_profile.ps1` to the result printed above
 
+# To customize Conemu themes
+https://github.com/joonro/ConEmu-Color-Themes
+My favourite is Dracula
+
 # Install other 
 
 Chocolatey
