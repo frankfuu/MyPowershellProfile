@@ -37,6 +37,6 @@ function prompt {
 Set-Alias ssh-agent "$env:ProgramFiles\git\usr\bin\ssh-agent.exe"
 Set-Alias ssh-add "$env:ProgramFiles\git\usr\bin\ssh-add.exe"
 
-Set-Alias sublime3 "C:\Program Files\Sublime Text 3\sublime_text.exe"
+Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe"
 
 Start-SshAgent
