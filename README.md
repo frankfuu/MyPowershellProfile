@@ -1,5 +1,11 @@
 # To use Powershelll Profile
 
+Install required modules
+```
+Import-Module -Name posh-git
+Import-Module -Name posh-docker
+```
+
 Find path to `$PROFILE`
 ```
 echo $PROFILE
