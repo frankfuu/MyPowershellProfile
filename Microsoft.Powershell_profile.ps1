@@ -1,3 +1,4 @@
+## Setup required modules
 if (Get-Module -ListAvailable -Name posh-git) {    
     Import-Module posh-git
 } else {
@@ -41,10 +42,14 @@ function prompt {
     "`n$('>' * ($nestedPromptLevel + 1)) "
 }
 
-
+# Create aliases
 Set-Alias ssh-agent "$env:ProgramFiles\git\usr\bin\ssh-agent.exe"
 Set-Alias ssh-add "$env:ProgramFiles\git\usr\bin\ssh-add.exe"
-
 Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe"
 
-Start-SshAgent
+# Configuring SSH Agent
+if(-Not (Get-sshagent))
+{   
+    Write-Host Starting SSH Agent..
+    Start-SshAgent    
+}
