@@ -1,5 +1,14 @@
-Import-Module -Name posh-git
-Import-Module -Name posh-docker
+if (Get-Module -ListAvailable -Name posh-git) {    
+    Import-Module posh-git
+} else {
+    Install-Module posh-git -Force
+}
+
+if (Get-Module -ListAvailable -Name posh-git) {    
+    Import-Module posh-docker
+} else {
+    Install-Module posh-docker -Force
+}
 
 function Test-Administrator {
     $user = [Security.Principal.WindowsIdentity]::GetCurrent();
@@ -12,10 +21,10 @@ function prompt {
     Write-VcsStatus
 
     if (Test-Administrator) {  # if elevated
-        Write-Host "(Elevated) " -NoNewline -ForegroundColor White
+        Write-Host "[Administrator] " -NoNewline -ForegroundColor DarkGreen
     }
 
-    Write-Host "$env:USERNAME@" -NoNewline -ForegroundColor DarkYellow
+    Write-Host "$env:USERNAME@" -NoNewline -ForegroundColor Yellow
     Write-Host "$env:COMPUTERNAME" -NoNewline -ForegroundColor Magenta
     Write-Host " : " -NoNewline -ForegroundColor DarkGray
 
@@ -25,10 +34,9 @@ function prompt {
         $curPath = "~" + $curPath.SubString($Home.Length)
     }
 
-    Write-Host $curPath -NoNewline -ForegroundColor Blue
+    Write-Host $curPath -NoNewline -ForegroundColor DarkGray
     Write-Host " : " -NoNewline -ForegroundColor DarkGray
-    Write-Host (Get-Date -Format G) -NoNewline -ForegroundColor DarkMagenta
-    Write-Host " : " -NoNewline -ForegroundColor DarkGray
+    Write-Host $(get-date) -NoNewline -ForegroundColor Green    
     $LastExitCode = $origLastExitCode
     "`n$('>' * ($nestedPromptLevel + 1)) "
 }
