@@ -11,6 +11,12 @@ if (Get-Module -ListAvailable -Name posh-git) {
     Install-Module posh-docker -Force
 }
 
+if (Get-Module -ListAvailable -Name GetSTFolderSize) {    
+    Import-Module GetSTFolderSize
+} else {
+    Install-Module GetSTFolderSize -Force
+}
+
 function Test-Administrator {
     $user = [Security.Principal.WindowsIdentity]::GetCurrent();
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
