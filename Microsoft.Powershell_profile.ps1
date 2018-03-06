@@ -5,7 +5,7 @@ if (Get-Module -ListAvailable -Name posh-git) {
     Install-Module posh-git -Force
 }
 
-if (Get-Module -ListAvailable -Name posh-git) {    
+if (Get-Module -ListAvailable -Name posh-docker) {    
     Import-Module posh-docker
 } else {
     Install-Module posh-docker -Force
