@@ -1,17 +1,11 @@
 # To use Powershelll Profile
 
-Install required modules
+Note - this will install modules like `posh-git`, `posh-docker` and `GetSTFolderSize`
 ```
-Import-Module -Name posh-git
-Import-Module -Name posh-docker
+git clone https://github.com/frankfuu/dotfiles.git
+cd dotfiles
+cp .\Microsoft.Powershell_profile.ps1 -Destination $PROFILE
 ```
-
-Find path to `$PROFILE`
-```
-echo $PROFILE
-```
-
-Paste contents of `Microsoft.Powershell_profile.ps1` to the result printed above
 
 # To customize Conemu themes
 https://github.com/joonro/ConEmu-Color-Themes
