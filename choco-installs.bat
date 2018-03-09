@@ -22,7 +22,7 @@ choco install pip
 choco install beyondcompare
 choco install webpi
 choco install nuget.commandline
-choco install smartgit
+choco install smartgit # doesn't always work..always gets updated
 
 # Dev optional
 choco install gifcam
