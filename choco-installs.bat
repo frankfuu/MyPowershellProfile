@@ -26,7 +26,6 @@ choco install smartgit # doesn't always work..always gets updated
 
 # Dev optional
 choco install gifcam
-choco install fiddler4
 choco install mongodb
 choco install conemu
 choco install filezilla
