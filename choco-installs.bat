@@ -15,6 +15,7 @@ choco install visualstudiocode
 
 # Dev crucial
 choco install git
+choco install nano
 choco install nodejs
 choco install ruby
 choco install python3
