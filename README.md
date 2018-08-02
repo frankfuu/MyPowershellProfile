@@ -1,6 +1,6 @@
 # To use Powershelll Profile
 
-Note - this will install modules like `posh-git`, `posh-docker` and `GetSTFolderSize`
+Note - this will install modules like `GetSTFolderSize`
 ```
 git clone https://github.com/frankfuu/dotfiles.git
 cd dotfiles
