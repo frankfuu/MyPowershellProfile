@@ -1,13 +1,21 @@
 # https://github.com/dahlbyk/posh-git/issues/583 - Windows 10 version 1803 broke my ssh-agent
 [System.Environment]::SetEnvironmentVariable("SSH_AUTH_SOCK", $null)
 [System.Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null)
-
 git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+
+# Install desired modules
+if (Get-Module -ListAvailable -Name DockerCompletion) {    
+    Import-Module DockerCompletion
+} else {
+    Install-Module DockerCompletion -Force
+    Import-Module DockerCompletion
+}
 
 if (Get-Module -ListAvailable -Name GetSTFolderSize) {    
     Import-Module GetSTFolderSize
 } else {
     Install-Module GetSTFolderSize -Force
+    Import-Module GetSTFolderSize
 }
 
 function Test-Administrator {
@@ -38,7 +46,7 @@ function prompt {
     Write-Host " : " -NoNewline -ForegroundColor DarkGray
     Write-Host $(get-date) -NoNewline -ForegroundColor Green    
     $LastExitCode = $origLastExitCode
-    "`n$('>' * ($nestedPromptLevel + 1)) "
+    "`n$('> ' * ($nestedPromptLevel + 1)) "
 }
 
 # Create aliases
