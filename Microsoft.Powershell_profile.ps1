@@ -1,16 +1,3 @@
-## Setup required modules
-if (Get-Module -ListAvailable -Name posh-git) {    
-    Import-Module posh-git
-} else {
-    Install-Module posh-git -Force
-}
-
-if (Get-Module -ListAvailable -Name posh-docker) {    
-    Import-Module posh-docker
-} else {
-    Install-Module posh-docker -Force
-}
-
 if (Get-Module -ListAvailable -Name GetSTFolderSize) {    
     Import-Module GetSTFolderSize
 } else {
