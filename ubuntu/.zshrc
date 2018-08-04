@@ -13,4 +13,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Aliases
+alias dkr="docker-compose"
 alias dc="docker-compose"
+alias reload="source .zshrc"
+
