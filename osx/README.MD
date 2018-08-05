@@ -9,7 +9,7 @@
 1. Clone the `.itermcolors` file
 ```
 # see https://github.com/MartinSeeler/iterm2-material-design
-cd Downloads
+cd ~/Downloads
 git clone https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
 ```
 2. *iTerm2 > Preferences > Profiles > Colors Tab*
