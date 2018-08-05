@@ -5,12 +5,11 @@
 - Zsh
 - Oh-My-Zsh
 
-### Themes for Iterm
+### Themes for Iterm2 - from [Martin Seeler](https://github.com/MartinSeeler/iterm2-material-design)
 1. Clone the `.itermcolors` file
 ```
 # see https://github.com/MartinSeeler/iterm2-material-design
-cd ~/Downloads
-git clone https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
+curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
 ```
 2. *iTerm2 > Preferences > Profiles > Colors Tab*
 3. Click *Color Presets...*
