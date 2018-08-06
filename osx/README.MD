@@ -20,3 +20,8 @@ curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/ma
 
 ## Tab completions for Azure CLI on Zsh . 
 https://stackoverflow.com/questions/49273395/how-to-enable-command-completion-for-azure-cli-in-zsh
+Info - I installed Azure CLI using [brew as described here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest)
+1. Find path to completion file (mine was in /usr/local/etc/bash_completion.d/az)
+2. Enable bash autocompletions in zsh (if it's not enabled already) [1]: 
+`autoload -U +X bashcompinit && bashcompinit`
+3. `source /path/to/az.completion` (you will likely want this in your startup file for zsh also).
