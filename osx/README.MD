@@ -16,3 +16,7 @@ curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/ma
 4. Click *Import...*
 5. Select the `material-design-colors.itermcolors` file
 5. Select the *material-design-colors* from *Load Presets...*
+
+
+## Tab completions for Azure CLI on Zsh . 
+https://stackoverflow.com/questions/49273395/how-to-enable-command-completion-for-azure-cli-in-zsh
