@@ -63,6 +63,7 @@ Function Add-PersonalAliases
     # New-Alias code "C:\Program Files\Microsoft VS Code\Code.exe"
     Set-Alias -Name dkr -Value docker -Scope Script
     Set-Alias -Name dc -Value docker-compose -Scope Script
+    Set-Alias -Name g -Value git -Scope Script
 }
 
 # Other functions
