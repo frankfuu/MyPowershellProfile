@@ -61,8 +61,8 @@ Function Add-PersonalAliases
 {
     Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe"
     Set-Alias code "C:\Program Files\Microsoft VS Code\Code.exe"
-    Set-Alias dkr docker
-    Set-Alias dc docker-compose
+    Set-Alias -Name dkr -Value docker
+    Set-Alias -Name dc -Value docker-compose
 }
 
 # Other functions
