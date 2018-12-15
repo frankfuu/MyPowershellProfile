@@ -59,10 +59,10 @@ Function Add-PersonalModules
 
 Function Add-PersonalAliases
 {
-    Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe"
-    Set-Alias code "C:\Program Files\Microsoft VS Code\Code.exe"
-    Set-Alias -Name dkr -Value docker
-    Set-Alias -Name dc -Value docker-compose
+    Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe" -Scope Script
+    # New-Alias code "C:\Program Files\Microsoft VS Code\Code.exe"
+    Set-Alias -Name dkr -Value docker -Scope Script
+    Set-Alias -Name dc -Value docker-compose -Scope Script
 }
 
 # Other functions
