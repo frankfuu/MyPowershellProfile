@@ -29,13 +29,12 @@ Function prompt {
     "`n$('>' * ($nestedPromptLevel + 1)) "
 }
 
-Function Configure-GitUseOpenSSHWorkaround
+Function Set-GitOpenSSHWorkaround
 {
     # https://github.com/dahlbyk/posh-git/issues/583 - Windows 10 version 1803 broke my ssh-agent
     [System.Environment]::SetEnvironmentVariable("SSH_AUTH_SOCK", $null)
     [System.Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null)
     git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
-
 }
 
 Function Add-PersonalModules 
@@ -59,19 +58,18 @@ Function Add-PersonalModules
 
 Function Add-PersonalAliases
 {
-    Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe" -Scope Script
-    # New-Alias code "C:\Program Files\Microsoft VS Code\Code.exe"
-    Set-Alias -Name dkr -Value docker -Scope Script
-    Set-Alias -Name dc -Value docker-compose -Scope Script
-    Set-Alias -Name g -Value git -Scope Script
+    Set-Alias sublime "C:\Program Files\Sublime Text 3\sublime_text.exe" -Scope Global
+    # New-Alias code "C:\Program Files\Microsoft VS Code\Code.exe" -Scope Global
+    Set-Alias -Name dkr -Value docker -Scope Global
+    Set-Alias -Name dc -Value docker-compose -Scope Global
+    Set-Alias -Name g -Value git -Scope Global
 }
 
 # Other functions
 Function reload {. $PROFILE;}
 
-
 Add-PersonalModules
 Add-PersonalAliases
-Configure-GitUseOpenSSHWorkaround
+Set-GitOpenSSHWorkaround
 
 Write-Host "Loaded PS Profile."
