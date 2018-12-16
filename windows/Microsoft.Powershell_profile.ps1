@@ -5,13 +5,17 @@ Function Test-Administrator {
 
 Function prompt {
     
+    # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
+    $origLastExitCode = $LastExitCode
+    Write-VcsStatus
+
     if (Test-Administrator) {  # if elevated
         Write-Host "[Administrator] " -NoNewline
     }
 
     Write-Host "$env:USERNAME@" -NoNewline
     Write-Host "$env:COMPUTERNAME" -NoNewline
-    Write-Host " - " -NoNewline -ForegroundColor DarkGray
+    Write-Host " - " -NoNewline -ForegroundColor DarkGray 
 
     $curPath = $ExecutionContext.SessionState.Path.CurrentLocation.Path
     if ($curPath.ToLower().StartsWith($Home.ToLower()))
