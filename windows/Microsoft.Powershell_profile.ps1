@@ -4,16 +4,13 @@ Function Test-Administrator {
 }
 
 Function prompt {
-    # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
-    $origLastExitCode = $LastExitCode
-    Write-VcsStatus
-
+    
     if (Test-Administrator) {  # if elevated
-        Write-Host "[Administrator] " -NoNewline -ForegroundColor Green
+        Write-Host "[Administrator] " -NoNewline
     }
 
-    Write-Host "$env:USERNAME@" -NoNewline -ForegroundColor Yellow
-    Write-Host "$env:COMPUTERNAME" -NoNewline -ForegroundColor Magenta
+    Write-Host "$env:USERNAME@" -NoNewline
+    Write-Host "$env:COMPUTERNAME" -NoNewline
     Write-Host " - " -NoNewline -ForegroundColor DarkGray
 
     $curPath = $ExecutionContext.SessionState.Path.CurrentLocation.Path
@@ -23,8 +20,8 @@ Function prompt {
     }
 
     Write-Host $curPath -NoNewline -ForegroundColor Cyan
-    Write-Host " @ " -NoNewline -ForegroundColor DarkGreen
-    Write-Host $(get-date) -NoNewline -ForegroundColor DarkGreen    
+    Write-Host " @ " -NoNewline 
+    Write-Host $(get-date) -NoNewline
     $LastExitCode = $origLastExitCode
     "`n$('>' * ($nestedPromptLevel + 1)) "
 }
