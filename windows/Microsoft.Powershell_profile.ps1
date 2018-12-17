@@ -4,30 +4,10 @@ Function Test-Administrator {
 }
 
 Function prompt {
-    
-    # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
-    $origLastExitCode = $LastExitCode
-    Write-VcsStatus
+    # Your non-prompt logic here
 
-    if (Test-Administrator) {  # if elevated
-        Write-Host "[Administrator] " -NoNewline
-    }
-
-    Write-Host "$env:USERNAME@" -NoNewline
-    Write-Host "$env:COMPUTERNAME" -NoNewline
-    Write-Host " - " -NoNewline -ForegroundColor DarkGray 
-
-    $curPath = $ExecutionContext.SessionState.Path.CurrentLocation.Path
-    if ($curPath.ToLower().StartsWith($Home.ToLower()))
-    {
-        $curPath = "~" + $curPath.SubString($Home.Length)
-    }
-
-    Write-Host $curPath -NoNewline -ForegroundColor Cyan
-    Write-Host " @ " -NoNewline 
-    Write-Host $(get-date) -NoNewline
-    $LastExitCode = $origLastExitCode
-    "`n$('>' * ($nestedPromptLevel + 1)) "
+    # Have posh-git display its default prompt
+    & $GitPromptScriptBlock
 }
 
 Function Set-GitOpenSSHWorkaround
@@ -66,11 +46,19 @@ Function Add-PersonalAliases
     Set-Alias -Name g -Value git -Scope Global
 }
 
+Function Set-PoshGitPromptSettings
+{
+    # https://github.com/dahlbyk/posh-git/blob/master/README.md#customizing-the-posh-git-prompt
+    $GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n'
+    $GitPromptSettings.DefaultPromptSuffix = '$(">" * ($nestedPromptLevel + 1)) '
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
 Add-PersonalModules
 Add-PersonalAliases
 Set-GitOpenSSHWorkaround
+Set-PoshGitPromptSettings
 
 Write-Host "Loaded PS Profile."
