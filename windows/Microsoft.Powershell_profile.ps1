@@ -23,6 +23,21 @@ Function Add-PersonalModules
     if (Get-Module -ListAvailable -Name posh-git) {    
         Import-Module posh-git
     } else {
+
+        # NOTE: If the AllowPrerelease parameter is not recognized, update your version of PowerShellGet to >= 1.6 e.g.
+        # Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+
+        $allowsPreReleaseParam = (Get-Command Install-Module).ParameterSets | Select-Object -ExpandProperty Parameters | Where-Object {$_.Name -eq "AllowPreRelease"} 
+        if($null -eq $allowsPreReleaseParam)
+        {
+            Write-Host "Prerelease param not supported. PowershellGet Module update required."	
+        } 
+        else 
+        {
+            Write-Host "Installing PowershellGet Module.."
+            Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+        }
+
         Write-Host "posh-git required but not found. Installing now .."
         Install-Module posh-git -AllowClobber -AllowPrerelease -Force
         Import-Module posh-git
