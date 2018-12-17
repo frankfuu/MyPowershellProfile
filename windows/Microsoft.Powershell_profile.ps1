@@ -20,6 +20,14 @@ Function Set-GitOpenSSHWorkaround
 
 Function Add-PersonalModules 
 {
+    if (Get-Module -ListAvailable -Name posh-git) {    
+        Import-Module posh-git
+    } else {
+        Write-Host "posh-git required but not found. Installing now .."
+        Install-Module posh-git -AllowClobber -AllowPrerelease -Force
+        Import-Module posh-git
+    }
+
     if (Get-Module -ListAvailable -Name DockerCompletion) {    
         Import-Module DockerCompletion
     } else {
