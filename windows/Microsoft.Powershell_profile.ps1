@@ -55,10 +55,13 @@ Function Add-PersonalAliases
 }
 
 Function Set-PoshGitPromptSettings
-{
+{    
     # https://github.com/dahlbyk/posh-git/blob/master/README.md#customizing-the-posh-git-prompt
     $GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n'
     $GitPromptSettings.DefaultPromptSuffix = '$(">" * ($nestedPromptLevel + 1)) '
+    
+    # TO RESET ALL SETTINGS RUN LINE BELOW
+    # $GitPromptSettings = & (gmo posh-git) { [PoshGitPromptSettings]::new() }
 }
 
 # Other functions
