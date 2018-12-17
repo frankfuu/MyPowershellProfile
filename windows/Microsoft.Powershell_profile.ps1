@@ -34,6 +34,9 @@ Function Add-PersonalModules
         } 
         else 
         {
+            Write-Host "Ensure Nuget has Minimum version of 2.8.5.201. Installing now.. "
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
             Write-Host "Installing PowershellGet Module.."
             Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
         }
