@@ -7,6 +7,7 @@ choco install google-chrome
 choco install firefox
 choco install cmder
 choco install ccleaner
+choco install sysinternals
 
 # Editors
 choco install sublimetext3

@@ -79,6 +79,17 @@ Function Set-PoshGitPromptSettings
     # $GitPromptSettings = & (gmo posh-git) { [PoshGitPromptSettings]::new() }
 }
 
+Function Set-Autocompletes
+{
+    # PowerShell parameter completion shim for the dotnet CLI 
+    Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+        param($commandName, $wordToComplete, $cursorPosition)
+            dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+            }
+    }
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
@@ -86,5 +97,6 @@ Add-PersonalModules
 Add-PersonalAliases
 Set-GitOpenSSHWorkaround
 Set-PoshGitPromptSettings
+Set-Autocompletes
 
 Write-Host "Loaded PS Profile."
