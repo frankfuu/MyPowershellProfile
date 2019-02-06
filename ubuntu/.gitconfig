@@ -6,7 +6,7 @@
 	trustctime = false
 	editor = vim
 	filemode = false
-	autocrlf = true
+	autocrlf = false 
 	excludesfile = ~/.gitignore_global
 	safecrlf = false	
 [user]
