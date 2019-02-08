@@ -1,0 +1,4 @@
+# Aliases
+alias dkr="docker"
+alias dc="docker-compose"
+alias reload="source .zshrc"
