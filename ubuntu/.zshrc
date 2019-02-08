@@ -9,6 +9,7 @@ plugins=(
   colored-man-pages
   aws
   ssh-agent
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -19,3 +20,5 @@ source $HOME/.zsh_aliases
 # https://www.hanselman.com/blog/WebDevelopmentAndAdvancedTechniquesWithLinuxOnWindowsWSL.aspx
 # https://www.hanselman.com/blog/SettingUpAShinyDevelopmentEnvironmentWithinLinuxOnWindows10.aspx
 # https://www.hanselman.com/blog/TheYearOfLinuxOnTheWindowsDesktopWSLTipsAndTricks.aspx
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
