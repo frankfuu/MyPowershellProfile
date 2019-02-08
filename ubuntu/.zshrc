@@ -8,6 +8,7 @@ plugins=(
   docker
   colored-man-pages
   aws
+  ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
