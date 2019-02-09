@@ -1,0 +1,2 @@
+# set directory of symlinked dotfiles 
+export dotfiles=/mnt/c/projects/dotfiles
