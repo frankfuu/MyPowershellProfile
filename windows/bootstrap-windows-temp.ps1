@@ -1,4 +1,4 @@
-﻿$targetBinary = "choco"
+$targetBinary = "choco"
 
 if ((Get-Command $targetBinary -ErrorAction Continue)  -eq $null)
 {
