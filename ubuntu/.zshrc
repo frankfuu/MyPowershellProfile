@@ -9,7 +9,6 @@ plugins=(
   colored-man-pages
   aws
   ssh-agent
-  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -21,9 +20,13 @@ if grep -q Microsoft /proc/version; then
   source $HOME/.zsh_wsl_exports
 fi
 
+# Load fzf if installed
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # references
 # https://www.hanselman.com/blog/WebDevelopmentAndAdvancedTechniquesWithLinuxOnWindowsWSL.aspx
 # https://www.hanselman.com/blog/SettingUpAShinyDevelopmentEnvironmentWithinLinuxOnWindows10.aspx
 # https://www.hanselman.com/blog/TheYearOfLinuxOnTheWindowsDesktopWSLTipsAndTricks.aspx
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
