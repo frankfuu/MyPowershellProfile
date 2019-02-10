@@ -6,9 +6,8 @@
 	trustctime = false
 	editor = vim
 	filemode = false
-	autocrlf = true
-	excludesfile = ~/.gitignore_global
-	safecrlf = false	
+	autocrlf = false
+	excludesfile = ~/.gitignore_global	
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe 
 [user]
 	name = Frank Fu
