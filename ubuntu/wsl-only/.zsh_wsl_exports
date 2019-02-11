@@ -1,5 +1,5 @@
 # set directory of symlinked dotfiles
-export dotfiles=/mnt/c/projects/dotfiles
+export dotfiles=/c/projects/dotfiles
 
 # Configure the WSL Docker CLI to use the Docker for Windows daemon.
 # Requires: https://docs.docker.com/docker-for-windows/install/
