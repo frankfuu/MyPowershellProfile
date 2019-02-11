@@ -2,6 +2,7 @@
 
 [push]
 	default = matching
+	followTags = true
 [core]
 	trustctime = false
 	editor = vim
