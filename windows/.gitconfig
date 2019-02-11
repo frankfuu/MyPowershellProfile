@@ -8,7 +8,7 @@
 	filemode = false
 	autocrlf = false
 	excludesfile = ~/.gitignore_global	
-	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe 
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 [user]
 	name = Frank Fu
 	email = frankfu1122@gmail.com
