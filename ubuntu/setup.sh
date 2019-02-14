@@ -28,3 +28,6 @@ fi
 
 # finally add symlinks
 ./install.sh
+
+# change default shell to ZSH
+sudo chsh -s $(which zsh) $USER
