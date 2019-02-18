@@ -1,14 +1,12 @@
-Function Test-Administrator {
-    $user = [Security.Principal.WindowsIdentity]::GetCurrent();
-    (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-}
-
 Function prompt {
     # Your non-prompt logic here
-
+    "$pwd
+> "
+    
     # Have posh-git display its default prompt
-    & $GitPromptScriptBlock
+    # & $GitPromptScriptBlock
 }
+
 
 Function Set-GitOpenSSHWorkaround
 {
@@ -21,11 +19,11 @@ Function Set-GitOpenSSHWorkaround
 Function Add-PersonalModules 
 {
     if (Get-Module -ListAvailable -Name posh-git) {    
-        Import-Module posh-git
+        # Import-Module posh-git
     } else {
 
         # NOTE: If the AllowPrerelease parameter is not recognized, update your version of PowerShellGet to >= 1.6 e.g.
-        # Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+        Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
 
         $allowsPreReleaseParam = (Get-Command Install-Module).ParameterSets | Select-Object -ExpandProperty Parameters | Where-Object {$_.Name -eq "AllowPreRelease"} 
         if($null -eq $allowsPreReleaseParam)
@@ -96,7 +94,7 @@ Function reload {. $PROFILE;}
 Add-PersonalModules
 Add-PersonalAliases
 Set-GitOpenSSHWorkaround
-Set-PoshGitPromptSettings
+#Set-PoshGitPromptSettings
 Set-Autocompletes
 
 Write-Host "Loaded PS Profile."
