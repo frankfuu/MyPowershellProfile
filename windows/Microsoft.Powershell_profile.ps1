@@ -42,7 +42,7 @@ Function Add-PersonalModules
     }
 
     if (Get-Module -ListAvailable -Name DockerCompletion) {    
-        Import-Module DockerCompletion
+        # Import-Module DockerCompletion
     } else {
         Write-Host "DockerCompletion required but not found. Installing now .."
         Install-Module DockerCompletion -Force
@@ -50,7 +50,7 @@ Function Add-PersonalModules
     }
     
     if (Get-Module -ListAvailable -Name GetSTFolderSize) {    
-        Import-Module GetSTFolderSize
+        # Import-Module GetSTFolderSize
     } else {
         Write-Host "GetSTFolderSize required but not found. Installing now .."
         Install-Module GetSTFolderSize -Force
@@ -94,7 +94,7 @@ Function reload {. $PROFILE;}
 Add-PersonalModules
 Add-PersonalAliases
 Set-GitOpenSSHWorkaround
-#Set-PoshGitPromptSettings
-Set-Autocompletes
+# Set-PoshGitPromptSettings
+# Set-Autocompletes
 
 Write-Host "Loaded PS Profile."
