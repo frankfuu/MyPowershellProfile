@@ -2,6 +2,7 @@
 Remove-Item $PROFILE
 Remove-Item $env:USERPROFILE\.gitconfig
 Remove-Item $env:USERPROFILE\.gitignore_global
+Remove-Item $env:USERPROFILE\.hyper.js
 
 # Unregister periodic pull
 $taskName = "pull dotfiles"
