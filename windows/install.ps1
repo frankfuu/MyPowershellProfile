@@ -4,11 +4,17 @@ New-Item -Type SymbolicLink -Path $env:USERPROFILE\.gitconfig -Value .\.gitconfi
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.gitignore_global -Value .\.gitignore_global -Force
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.hyper.js -Value .\.hyper.js -Force
 
-# Create sheduled task to periodically pull
-$startTrigger =  New-ScheduledTaskTrigger -Daily -At 6pm
-$sAction = New-ScheduledTaskAction -Execute "git.exe" -Argument '-C "c:\projects\dotfiles" pull --verbose'
+# Create sheduled task to periodically pull if not exist
 $taskName = "pull dotfiles"
-Register-ScheduledTask -Action $sAction -TaskName $taskName -TaskPath $env:USERNAME -Trigger $startTrigger
+if(Get-ScheduledTask $taskName -ErrorAction Ignore)  {  
+    Write-Host "Scheduled task already exists. Skipping install of scheduled task" 
+}
+else {
+    Write-Host "Installing scheduled task named :  $taskName"
+    $startTrigger =  New-ScheduledTaskTrigger -Daily -At 6pm
+    $sAction = New-ScheduledTaskAction -Execute "git.exe" -Argument '-C "c:\projects\dotfiles" pull --verbose'
+    Register-ScheduledTask -Action $sAction -TaskName $taskName -TaskPath $env:USERNAME -Trigger $startTrigger    
+}
 
 # Reload Powershell profile
 . $PROFILE
