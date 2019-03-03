@@ -6,3 +6,6 @@
 
 # Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
 # export DISABLE_FZF_KEY_BINDINGS="true"
+
+#Fix dircolors
+export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g"):
