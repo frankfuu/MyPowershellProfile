@@ -2,3 +2,4 @@
 alias dkr="docker"
 alias dc="docker-compose"
 alias reload="source ~/.zshrc"
+alias pw="powershell.exe Start-Process powershell -Verb runAs"
