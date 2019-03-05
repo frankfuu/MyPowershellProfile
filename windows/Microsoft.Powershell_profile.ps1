@@ -88,6 +88,11 @@ Function Set-Autocompletes
     }
 }
 
+<#  Features
+    - Updates $env:Path so the change takes effect in the current session
+    - Persists the environment variable change for future sessions
+    - Doesn't add a duplicate path when the same path already exists
+#>
 function Add-EnvPath {
     param(
         [Parameter(Mandatory=$true)]
@@ -96,6 +101,8 @@ function Add-EnvPath {
         [ValidateSet('Machine', 'User', 'Session')]
         [string] $Container = 'Session'
     )
+
+    
 
     if ($Container -ne 'Session') {
         $containerMapping = @{
