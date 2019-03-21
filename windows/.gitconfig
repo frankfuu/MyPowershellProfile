@@ -8,8 +8,8 @@
 	editor = vim
 	filemode = false
 	autocrlf = false
-	excludesfile = ~/.gitignore_global	
-	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+	excludesfile = ~/.gitignore_global
+	sshCommand = \"c:/Program Files/OpenSSH-Win64/ssh.exe\"
 [user]
 	name = Frank Fu
 	email = frankfu1122@gmail.com
@@ -35,3 +35,5 @@
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	d = difftool
+[pull]
+	rebase = true
