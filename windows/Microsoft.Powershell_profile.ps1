@@ -13,7 +13,7 @@ Function Set-GitOpenSSHWorkaround
     # https://github.com/dahlbyk/posh-git/issues/583 - Windows 10 version 1803 broke my ssh-agent
     [System.Environment]::SetEnvironmentVariable("SSH_AUTH_SOCK", $null)
     [System.Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null)
-    git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+    git config --global core.sshCommand "'C:\Program Files\OpenSSH-Win64\ssh.exe'"
 }
 
 Function Add-PersonalModules 
