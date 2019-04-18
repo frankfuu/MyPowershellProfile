@@ -178,7 +178,7 @@ function Test-Administrator
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
 
-Function Print-Variables
+Function Print-EnvironmentVariables
 {
     [CmdletBinding()]
     [Alias('EnterAliasName')]
@@ -199,7 +199,7 @@ Function Print-Variables
         'Process' { [System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::Process) }
         Default {}
     }
-    
+
     $Scope
 }
 
