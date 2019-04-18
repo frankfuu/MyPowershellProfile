@@ -178,6 +178,31 @@ function Test-Administrator
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
 
+Function Print-Variables
+{
+    [CmdletBinding()]
+    [Alias('EnterAliasName')]
+
+    Param
+    (
+        [ValidateSet('Machine', 'User', 'Process')] 
+        [string]$Scope = $(
+            Write-Host "Enter a selection --- Machine, User, Process:`t" -NoNewline -ForegroundColor Yellow 
+            Read-Host
+        )
+    )
+
+    switch ($Scope)
+    {
+        'Machine' { [System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::Machine) }
+        'User'    { [System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::User) }
+        'Process' { [System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::Process) }
+        Default {}
+    }
+    
+    $Scope
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
