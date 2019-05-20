@@ -19,5 +19,17 @@ else {
     Register-ScheduledTask -Action $sAction -TaskName $taskName -TaskPath $env:USERNAME -Trigger $startTrigger    
 }
 
+# Create sheduled task run audioscript upon login
+$taskName2 = "run audioscript upon login"
+if(Get-ScheduledTask $taskName2 -ErrorAction Ignore)  {  
+    Write-Host "Scheduled task already exists. Skipping install of scheduled task" 
+}
+else {
+    Write-Host "Installing scheduled task named :  $taskName2"
+    $startTrigger =  New-ScheduledTaskTrigger -AtLogOn
+    $sAction = New-ScheduledTaskAction -Execute "${pwd}\audioscript.exe"
+    Register-ScheduledTask -Action $sAction -TaskName $taskName2 -TaskPath $env:USERNAME -Trigger $startTrigger -RunLevel Highest
+}
+
 # Reload Powershell profile
 . $PROFILE

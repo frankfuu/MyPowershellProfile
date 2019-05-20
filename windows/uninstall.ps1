@@ -16,3 +16,13 @@ if(Get-ScheduledTask $taskName -ErrorAction Ignore)  {
 else {
     Write-Host "Task name : $taskName not found. Skipping removal"    
 }
+
+# Unregister audioscript
+$taskName2 = "run audioscript upon login"
+if(Get-ScheduledTask $taskName2 -ErrorAction Ignore)  {  
+    Write-Host "Removing scheduled task : $taskName2"
+    Unregister-ScheduledTask -TaskName $taskName2 -Confirm:$false    
+}
+else {
+    Write-Host "Task name : $taskName2 not found. Skipping removal"    
+}
