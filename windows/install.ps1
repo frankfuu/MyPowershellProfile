@@ -26,7 +26,7 @@ if(Get-ScheduledTask $taskName2 -ErrorAction Ignore)  {
 }
 else {
     Write-Host "Installing scheduled task named :  $taskName2"
-    $startTrigger =  New-ScheduledTaskTrigger -AtLogOn
+    $startTrigger =  New-ScheduledTaskTrigger -AtStartup
     $sAction = New-ScheduledTaskAction -Execute "${pwd}\audioscript.exe"
     Register-ScheduledTask -Action $sAction -TaskName $taskName2 -TaskPath $env:USERNAME -Trigger $startTrigger -RunLevel Highest
 }
