@@ -213,4 +213,6 @@ Set-GitOpenSSHWorkaround
 # Set-PoshGitPromptSettings
 # Set-Autocompletes
 
+Import-Module $env:USERPROFILE\FrankModules.ps1
+
 Write-Host "Loaded PS Profile."
