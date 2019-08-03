@@ -65,6 +65,7 @@ Function Add-PersonalAliases
     Set-Alias -Name dkr -Value docker -Scope Global
     Set-Alias -Name dc -Value docker-compose -Scope Global
     Set-Alias -Name g -Value git -Scope Global
+    Set-Alias -Name v -Value vagrant -Scope Global
 }
 
 Function Set-PoshGitPromptSettings
