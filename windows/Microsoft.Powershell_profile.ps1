@@ -7,7 +7,6 @@ Function prompt {
     # & $GitPromptScriptBlock
 }
 
-
 Function Set-GitOpenSSHWorkaround
 {
     # https://github.com/dahlbyk/posh-git/issues/583 - Windows 10 version 1803 broke my ssh-agent
@@ -213,6 +212,6 @@ Set-GitOpenSSHWorkaround
 # Set-PoshGitPromptSettings
 # Set-Autocompletes
 
-Import-Module $env:USERPROFILE\FrankModules.ps1
+Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
 
 Write-Host "Loaded PS Profile."
