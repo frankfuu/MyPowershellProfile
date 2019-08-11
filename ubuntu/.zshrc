@@ -29,4 +29,6 @@ fi
 # https://www.hanselman.com/blog/TheYearOfLinuxOnTheWindowsDesktopWSLTipsAndTricks.aspx
 
 
+## Turn off all beeps
+unsetopt BEEP
 
