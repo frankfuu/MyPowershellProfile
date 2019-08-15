@@ -62,3 +62,18 @@ function Add-VagrantBox($filename, $debug, $dryRun) {
 }
 
 # Add-VagrantBox -filename $filename -dryRun $dryRun -debug $debug
+
+function Set-HypervStatus($enable) {
+    if($enable -eq $true) {
+        Write-Host "Enabling Hyper-V"
+        dism.exe /Online /Enable-Feature:Microsoft-Hyper-V
+    }
+    elseif ($enable -eq $false) {
+        Write-Host "Disabling Hyper-V"
+        dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+    }
+    else {
+        Write-Host "Please set variable enable to true or false"
+        dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+    }
+}

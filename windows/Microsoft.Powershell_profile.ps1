@@ -214,4 +214,6 @@ Set-GitOpenSSHWorkaround
 
 Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
 
+Set-Location C:\projects\
+
 Write-Host "Loaded PS Profile."
