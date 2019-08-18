@@ -1,4 +1,5 @@
 # Aliases
+alias gnp="g --no-pager"
 alias dkr="docker"
 alias dc="docker-compose"
 alias reload="source ~/.zshrc"
