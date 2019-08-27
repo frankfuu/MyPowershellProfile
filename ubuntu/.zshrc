@@ -7,7 +7,6 @@ plugins=(
   git 
   docker
   colored-man-pages
-  aws
   ssh-agent
 )
 
