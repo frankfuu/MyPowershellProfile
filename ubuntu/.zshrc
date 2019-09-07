@@ -8,6 +8,7 @@ plugins=(
   docker
   colored-man-pages
   ssh-agent
+	command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
