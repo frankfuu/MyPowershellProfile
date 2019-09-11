@@ -9,6 +9,7 @@ unlink ~/.zshrc
 unlink ~/.zsh_exports
 unlink ~/.zsh_wsl_exports
 unlink ~/.zsh_aliases
+unlink ~/.zsh_functions
 unlink ~/.vimrc
 unlink ~/.tmux.conf
 

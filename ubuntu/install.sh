@@ -10,6 +10,7 @@ ln -sf "$DOTFILES_DIR/.zshrc" ~
 ln -sf "$DOTFILES_DIR/.zsh_exports" ~
 ln -sf "$DOTFILES_DIR/wsl-only/.zsh_wsl_exports" ~
 ln -sf "$DOTFILES_DIR/.zsh_aliases" ~
+ln -sf "$DOTFILES_DIR/.zsh_functions" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
 
