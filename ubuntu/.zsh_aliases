@@ -7,6 +7,13 @@ alias pa="powershell.exe Start-Process powershell -Verb runAs"
 alias v="vagrant"
 alias clip="xsel -ib"
 alias tree="tree -C"
-alias ls="ls --color=always"
 alias diff="diff --color"
 alias gtop='docker run --rm -it --name gtop --net="host" --pid="host" aksakalli/gtop'
+
+# MacOS conditionals
+if [[ $(uname -s) == Darwin ]]
+then
+    alias ls="ls -G"
+else
+    alias ls="ls --color=always"
+fi
