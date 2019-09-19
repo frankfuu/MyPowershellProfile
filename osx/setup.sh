@@ -11,3 +11,4 @@ brew cask install iterm2
 
 # add basic vagrant boxes
 vagrant box add ubuntu/xenial64
+vagrant box add yzgyyang/macOS-10.14
