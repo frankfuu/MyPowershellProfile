@@ -65,7 +65,13 @@ Function Add-PersonalAliases
     Set-Alias -Name dc -Value docker-compose -Scope Global
     Set-Alias -Name g -Value git -Scope Global
     Set-Alias -Name v -Value vagrant -Scope Global
+    Set-Alias -Name hostsfile -Value "explorer $env:SystemRoot\System32\Drivers\etc\hosts" -Scope Global
+    Set-Alias -Name boo -Value "C:\Program Files\Microsoft VS Code\Code.exe hihi.txt" -Scope Global
+
+    
 }
+function tree { wsl tree @args }
+function hosts { code "$env:windir\System32\drivers\etc\hosts" }
 
 Function Set-PoshGitPromptSettings
 {    
@@ -213,5 +219,7 @@ Set-GitOpenSSHWorkaround
 # Set-Autocompletes
 
 Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
+
+Set-Location C:\projects\
 
 Write-Host "Loaded PS Profile."

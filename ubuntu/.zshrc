@@ -7,13 +7,14 @@ plugins=(
   git 
   docker
   colored-man-pages
-  aws
   ssh-agent
+	command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_exports
 source $HOME/.zsh_aliases
+source $HOME/.zsh_functions
 
 # If System is WSL, source WSL only exports
 if grep -q Microsoft /proc/version; then
