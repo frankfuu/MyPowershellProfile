@@ -9,6 +9,7 @@ alias clip="xsel -ib"
 alias tree="tree -C"
 alias diff="diff --color"
 alias gtop='docker run --rm -it --name gtop --net="host" --pid="host" aksakalli/gtop'
+alias az='docker run -v ${HOME}:/root -t --rm mcr.microsoft.com/azure-cli az'
 
 # MacOS conditionals
 if [[ $(uname -s) == Darwin ]]
