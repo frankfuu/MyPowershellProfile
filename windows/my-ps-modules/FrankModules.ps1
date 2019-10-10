@@ -5,6 +5,7 @@ param(
 )
 
 function Add-VagrantBox($filename, $debug, $dryRun) {
+    
     ## Usage .\addvbox.ps1 -debug $true -filename .\generic_boxes_alpine37_versions_1.9.18_providers_hyperv.box
 
     if([string]::IsNullOrWhiteSpace($env:VAGRANT_HOME))
@@ -58,6 +59,9 @@ function Add-VagrantBox($filename, $debug, $dryRun) {
         $vagrantHomeTargetBoxDir = "$vagrantHomeDir\boxes\$vagrantBoxNameWordedSlash"; # e.g. E:\Vagrant\vagrant.d\boxes\generic-VAGRANTSLASH-alpine37
         Move-Item $vagrantHomeTargetBoxDir\0 $vagrantHomeTargetBoxDir\$vagrantBoxVersion
         Write-Host "Renamed $vagrantHomeTargetBoxDir\0 to $vagrantHomeTargetBoxDir\$vagrantBoxVersion" -ForegroundColor Green
+
+        # Add a metadata_url so that boxes know where to get updates (also so that vagrant doesn't complain), the `n is for LF line ending
+        Add-Content $vagrantHomeTargetBoxDir\metadata_url "https://vagrantcloud.com/$vagrantBoxName `n" -NoNewline # e.g. https://vagrantcloud.com/bento/ubuntu-16.04
     }
 }
 

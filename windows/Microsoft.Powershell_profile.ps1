@@ -55,6 +55,13 @@ Function Add-PersonalModules
         Install-Module GetSTFolderSize -Force
         Import-Module GetSTFolderSize
     }
+
+    if(Get-Module -ListAvailable -Name PSConsoleTheme) {
+        Import-Module PSConsoleTheme
+    } else {
+        Install-Module PSConsoleTheme -Force
+        Import-Module PSConsoleTheme
+    }
 }
 
 Function Add-PersonalAliases
@@ -209,17 +216,26 @@ Function Print-EnvironmentVariables
     $Scope
 }
 
+# Just to get things started!
+Function Set-PSReadLinePrefs() {
+    Set-PSReadLineKeyHandler -Key ctrl+w -Function BackwardDeleteWord;    
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
 Add-PersonalModules
 Add-PersonalAliases
 Set-GitOpenSSHWorkaround
+Set-PSReadLinePrefs
 # Set-PoshGitPromptSettings
 # Set-Autocompletes
 
 Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
 
 Set-Location C:\projects\
+
+# Get-ConsoleTheme -ListAvailable
+# Set-ConsoleTheme 'Dracula'
 
 Write-Host "Loaded PS Profile."
