@@ -24,8 +24,7 @@ fi
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
 # Might also need to add a missing symlink in ubuntu 16.04+ e.g.
 # ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-				sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then		
         source /etc/profile.d/vte.sh
 fi
 
