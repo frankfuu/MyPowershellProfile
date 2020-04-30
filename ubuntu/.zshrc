@@ -9,6 +9,7 @@ plugins=(
   colored-man-pages
   ssh-agent
 	command-not-found
+	vagrant
 )
 
 source $ZSH/oh-my-zsh.sh
