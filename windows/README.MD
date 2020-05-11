@@ -1,10 +1,7 @@
-## Powershell Window settings
-- Colors
-  - Screen text : Red 255, Green 200
-  - Screen background : Black
-- Font 
-  - Size 15
-  - Font Consolas
+## Windows Terminal settings
+Refer to these two documents
+- [Summary](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)
+- [Detailed](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md) 
   
   
 ### Setting up sshd using OpenSSh
