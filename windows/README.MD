@@ -2,7 +2,16 @@
 Refer to these two documents
 - [Summary](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)
 - [Detailed](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md) 
-  
+
+Example
+```
+"defaults": {
+        // Put settings here that you want to apply to all profiles.
+        "cursorColor": "#ff9900", // make cursor a orangey color
+        "cursorShape": "filledBox", // make cursor a blinking block
+        "fontSize": 12
+      }
+```
   
 ### Setting up sshd using OpenSSh
 ```
