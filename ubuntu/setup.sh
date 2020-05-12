@@ -40,3 +40,6 @@ fi
 
 # change default shell to ZSH
 sudo chsh -s $(which zsh) $USER
+
+# Setup crontab to run every hour fetch updates from remote git repo 
+(crontab -l ; echo "1 * * * * sh /home/frank/projects/dotfiles/ubuntu/cron_pull.sh >/dev/null 2>&1") | sort - | uniq - | crontab -
