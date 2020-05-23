@@ -11,8 +11,8 @@ alias diff="diff --color"
 alias gtop='docker run --rm -it --name gtop --net="host" --pid="host" aksakalli/gtop'
 alias azd='docker run -v ${HOME}:/root -t --rm mcr.microsoft.com/azure-cli az'
 
-alias large='gsettings set org.gnome.desktop.interface text-scaling-factor 1.25' 
-alias nolarge='gsettings set org.gnome.desktop.interface text-scaling-factor 1' 
+alias large='gsettings set org.gnome.desktop.interface text-scaling-factor 1.23' 
+alias small='gsettings set org.gnome.desktop.interface text-scaling-factor 1' 
 
 
 # MacOS conditionals

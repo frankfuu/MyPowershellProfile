@@ -35,6 +35,13 @@ if [ ! -x "$(command -v fzf)" ]; then
     ~/.fzf/install
 fi
 
+# install playerctl if not found
+if [ ! -x "$(command -v playerctl)" ]; then 
+    echo playerctl not found, installing it now ...
+		sudo apt install playerctl
+fi
+
+
 # finally add symlinks
 ./install.sh
 
