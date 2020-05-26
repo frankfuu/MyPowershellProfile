@@ -1,10 +1,6 @@
 Function prompt {
-    # Your non-prompt logic here
-    "$pwd
-> "
-    
-    # Have posh-git display its default prompt
-    # & $GitPromptScriptBlock
+# Your non-prompt logic here
+    "$pwd `n> ";
 }
 
 Function Set-GitOpenSSHWorkaround
@@ -13,55 +9,6 @@ Function Set-GitOpenSSHWorkaround
     [System.Environment]::SetEnvironmentVariable("SSH_AUTH_SOCK", $null)
     [System.Environment]::SetEnvironmentVariable("SSH_AGENT_PID", $null)
     git config --global core.sshCommand "'C:\Program Files\OpenSSH-Win64\ssh.exe'"
-}
-
-Function Add-PersonalModules 
-{
-    if (Get-Module -ListAvailable -Name posh-git) {    
-        # Import-Module posh-git
-    } else {
-
-        # NOTE: If the AllowPrerelease parameter is not recognized, update your version of PowerShellGet to >= 1.6 e.g.
-        Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
-
-        $allowsPreReleaseParam = (Get-Command Install-Module).ParameterSets | Select-Object -ExpandProperty Parameters | Where-Object {$_.Name -eq "AllowPreRelease"} 
-        if($null -eq $allowsPreReleaseParam)
-        {
-            Write-Host "Prerelease param not supported. PowershellGet Module update required."	
-            Write-Host "Ensure Nuget has Minimum version of 2.8.5.201. Installing now.. "
-            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-
-            Write-Host "Installing PowershellGet Module.."
-            Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
-        }
-        
-        Write-Host "posh-git required but not found. Installing now .."
-        Install-Module posh-git -AllowClobber -AllowPrerelease -Force
-        Import-Module posh-git
-    }
-
-    if (Get-Module -ListAvailable -Name DockerCompletion) {    
-        # Import-Module DockerCompletion
-    } else {
-        Write-Host "DockerCompletion required but not found. Installing now .."
-        Install-Module DockerCompletion -Force
-        Import-Module DockerCompletion
-    }
-    
-    if (Get-Module -ListAvailable -Name GetSTFolderSize) {    
-        # Import-Module GetSTFolderSize
-    } else {
-        Write-Host "GetSTFolderSize required but not found. Installing now .."
-        Install-Module GetSTFolderSize -Force
-        Import-Module GetSTFolderSize
-    }
-
-    if(Get-Module -ListAvailable -Name PSConsoleTheme) {
-        Import-Module PSConsoleTheme
-    } else {
-        Install-Module PSConsoleTheme -Force
-        Import-Module PSConsoleTheme
-    }
 }
 
 Function Add-PersonalAliases
@@ -73,9 +20,7 @@ Function Add-PersonalAliases
     Set-Alias -Name g -Value git -Scope Global
     Set-Alias -Name v -Value vagrant -Scope Global
     Set-Alias -Name hostsfile -Value "explorer $env:SystemRoot\System32\Drivers\etc\hosts" -Scope Global
-    Set-Alias -Name boo -Value "C:\Program Files\Microsoft VS Code\Code.exe hihi.txt" -Scope Global
-
-    
+    Set-Alias -Name boo -Value "C:\Program Files\Microsoft VS Code\Code.exe hihi.txt" -Scope Global    
 }
 function tree { wsl tree @args }
 function hosts { code "$env:windir\System32\drivers\etc\hosts" }
@@ -216,26 +161,26 @@ Function Print-EnvironmentVariables
     $Scope
 }
 
-# Just to get things started!
+# Map some key bindings for powershell to act like Linux shells
 Function Set-PSReadLinePrefs() {
-    Set-PSReadLineKeyHandler -Key ctrl+w -Function BackwardDeleteWord;    
+    Set-PSReadLineKeyHandler -Key ctrl+w    -Function BackwardDeleteWord
+    Set-PSReadLineKeyHandler -Key ctrl+p    -Function PreviousHistory
+    Set-PSReadLineKeyHandler -Key alt+d     -Function ShellKillWord    
+    Set-PSReadlineKeyHandler -Key alt+b     -Function ShellBackwardWord
+    Set-PSReadlineKeyHandler -Key alt+f     -Function ShellForwardWord 
+    Set-PSReadLineKeyHandler -Key ctrl+e    -Function MoveToEndOfLine  
+    Set-PSReadLineKeyHandler -Key ctrl+a    -Function GotoFirstNonBlankOfLine  
 }
 
 # Other functions
 Function reload {. $PROFILE;}
 
-Add-PersonalModules
 Add-PersonalAliases
-Set-GitOpenSSHWorkaround
 Set-PSReadLinePrefs
+Set-Location $env:USERPROFILE
+
+### OLD STUFF. Clean later ###
+# Set-GitOpenSSHWorkaround
 # Set-PoshGitPromptSettings
 # Set-Autocompletes
-
-Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
-
-Set-Location C:\projects\
-
-# Get-ConsoleTheme -ListAvailable
-# Set-ConsoleTheme 'Dracula'
-
-Write-Host "Loaded PS Profile."
+# Import-Module $env:USERPROFILE\my-ps-modules\FrankModules.ps1
