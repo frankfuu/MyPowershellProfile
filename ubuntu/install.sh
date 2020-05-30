@@ -3,6 +3,9 @@
 # Get dotfiles installation directory
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Creating required folders
+mkdir -p ~/.config/conky/
+
 # Creating symlinks
 ln -sf "$DOTFILES_DIR/.gitconfig" ~
 ln -sf "$DOTFILES_DIR/.gitignore_global" ~
