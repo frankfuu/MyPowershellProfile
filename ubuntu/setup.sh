@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # if current system is WSL then copy wsl.conf from repo to /etc/wsl.conf
-if grep -q Microsoft /proc/version; then
+if [[ "$OSTYPE" != "darwin"* ]] && grep -q Microsoft /proc/version; then
     
     if [ ! -e /etc/wsl.conf ]; then 
         echo "/etc/wsl.conf does not exist, copying now"
@@ -16,7 +16,7 @@ if grep -q Microsoft /proc/version; then
 fi
 
 # install ZSH shell if not found
-if [ ! -x "$(command -v zsh)" ]; then 
+if [[ "$OSTYPE" != "darwin"* ]] && [ ! -x "$(command -v zsh)" ]; then 
     echo zsh not found, installing it now ...
     sudo apt update
     sudo apt install zsh -y
@@ -36,7 +36,7 @@ if [ ! -x "$(command -v fzf)" ]; then
 fi
 
 # install playerctl if not found
-if [ ! -x "$(command -v playerctl)" ]; then 
+if [[ "$OSTYPE" != "darwin"* ]] && [ ! -x "$(command -v playerctl)" ]; then 
     echo playerctl not found, installing it now ...
 		sudo apt install playerctl
 fi
