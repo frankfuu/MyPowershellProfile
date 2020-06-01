@@ -17,15 +17,15 @@ source $HOME/.zsh_exports
 source $HOME/.zsh_aliases
 source $HOME/.zsh_functions
 
-# If System is WSL, source WSL only exports
-if grep -q Microsoft /proc/version; then
+# If System is WSL, source WSL only exports 
+# Need to check not in MacOS first as /proc/version does not exist in MacOS
+if [[ "$OSTYPE" != "darwin"* ]] && grep -q Microsoft /proc/version; then
   source $HOME/.zsh_wsl_exports
 fi
 
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
-# Might also need to add a missing symlink in ubuntu 16.04+ e.g.
-# ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then		
+        ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
         source /etc/profile.d/vte.sh
 fi
 

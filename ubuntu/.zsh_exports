@@ -9,3 +9,17 @@
 
 #Fix dircolors
 export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g"):
+
+
+
+# if [[ "$OSTYPE" == "darwin"* ]] && [ -x "$(command -v /usr/local/opt/gnu-sed/libexec/gnubin/sed)" ]; then    
+#     PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+# fi
+
+if [[ "$OSTYPE" == "darwin"* ]] ; then    
+    if [ -x "$(command -v /usr/local/opt/gnu-sed/libexec/gnubin/sed)" ]; then
+        PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+    else
+        echo gnu-sed not installed, consider installing with brew install gnu-sed
+    fi
+fi
