@@ -5,12 +5,26 @@ Refer to these two documents
 
 Example
 ```
+
+
+"defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}", // Ubuntu 20.04
+
+
 "defaults": {
         // Put settings here that you want to apply to all profiles.
         "cursorColor": "#ff9900", // make cursor a orangey color
         "cursorShape": "filledBox", // make cursor a blinking block
         "fontSize": 12
-      }
+      },
+
+
+"keybindings":
+    [
+        { "command": { "action": "splitPane", "split": "horizontal", "splitMode": "duplicate" }, "keys": "ctrl+shift+h" },
+        { "command": { "action": "splitPane", "split": "vertical", "splitMode": "duplicate" }, "keys": "ctrl+shift+j" }
+    ]      
+
+
 ```
   
 ### Setting up sshd using OpenSSh
