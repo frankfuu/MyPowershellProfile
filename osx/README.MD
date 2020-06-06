@@ -1,4 +1,5 @@
 ## Setup
+Refer to this [useful guide](https://github.com/sb2nov/mac-setup)
 
 - Iterm2
 - Brew
