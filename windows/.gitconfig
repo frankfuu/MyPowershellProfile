@@ -8,8 +8,8 @@
 	editor = vim
 	filemode = false
 	autocrlf = false
-	excludesfile = ~/.gitignore_global	
-	sshCommand = 'C:\\Program Files\\OpenSSH-Win64\\ssh.exe'
+	excludesfile = ~/.gitignore_global
+	sshCommand = 'C:\\Windows\\System32\\OpenSSH\\ssh.exe'	
 [user]
 	name = Frank Fu
 	email = frankfu1122@gmail.com
