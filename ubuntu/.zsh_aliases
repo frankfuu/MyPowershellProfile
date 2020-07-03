@@ -21,6 +21,8 @@ alias youtube-dl='docker run \
                   -v "$(pwd)":/workdir:rw \
                   frankfuu/docker-youtube-dl'
 
+alias yt=youtube-dl
+
 # MacOS conditionals
 if [[ $(uname -s) == Darwin ]]
 then
