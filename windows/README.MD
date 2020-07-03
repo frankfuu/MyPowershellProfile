@@ -14,7 +14,8 @@ Example
         // Put settings here that you want to apply to all profiles.
         "cursorColor": "#ff9900", // make cursor a orangey color
         "cursorShape": "filledBox", // make cursor a blinking block
-        "fontSize": 12
+        "fontSize": 11,
+        "fontFace": "Consolas"
       },
 
 
