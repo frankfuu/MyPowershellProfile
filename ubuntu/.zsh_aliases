@@ -18,6 +18,7 @@ alias youtube-dl='docker run \
                   --rm -i \
                   -e PGID=$(id -g) \
                   -e PUID=$(id -u) \
+                  -v ~/youtube-dl.conf:/etc/youtube-dl.conf:ro \
                   -v "$(pwd)":/workdir:rw \
                   frankfuu/docker-youtube-dl'
 
