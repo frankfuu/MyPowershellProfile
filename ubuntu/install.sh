@@ -16,6 +16,7 @@ ln -sf "$DOTFILES_DIR/.zsh_aliases" ~
 ln -sf "$DOTFILES_DIR/.zsh_functions" ~
 ln -sf "$DOTFILES_DIR/.vimrc" ~
 ln -sf "$DOTFILES_DIR/.tmux.conf" ~
+ln -sf "$DOTFILES_DIR/youtube-dl.conf" ~
 ln -sf "$DOTFILES_DIR"/conky.conf ~/.config/conky/conky.conf
 
 # REFERENCES
