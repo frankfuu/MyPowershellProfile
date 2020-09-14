@@ -184,7 +184,7 @@ Function reload {. $PROFILE;}
 
 Add-PersonalAliases
 Set-PSReadLinePrefs
-Set-Location $env:USERPROFILE
+# Set-Location $env:USERPROFILE
 
 ### OLD STUFF. Clean later ###
 # Set-GitOpenSSHWorkaround
