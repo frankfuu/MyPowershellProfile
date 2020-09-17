@@ -179,6 +179,11 @@ Function Set-PSReadLinePrefs() {
     Set-PSReadLineKeyHandler -Key ctrl+a    -Function GotoFirstNonBlankOfLine  
 }
 
+Function Enter-VMConnect($vmName) {
+    # Let's you reconfigure resolution after you've chosen "Save my settings for future connections to this virtual machine" when using Hyper-V
+    vmconnect.exe . $vmName /edit
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
