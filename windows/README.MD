@@ -1,3 +1,12 @@
+## Setting ssh keys
+
+Ensure open agent is running is running
+```
+gsv *ssh* | Set-Service -StartupType Automatic
+gsv *ssh* | Start-Service
+ssh-add
+```
+
 ## Windows Terminal settings
 Refer to these two documents
 - [Summary](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)
