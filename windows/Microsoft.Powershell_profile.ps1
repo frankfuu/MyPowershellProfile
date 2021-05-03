@@ -19,11 +19,18 @@ Function Add-PersonalAliases
     Set-Alias -Name dc -Value docker-compose -Scope Global
     Set-Alias -Name g -Value git -Scope Global
     Set-Alias -Name v -Value vagrant -Scope Global
-    Set-Alias -Name hostsfile -Value "explorer $env:SystemRoot\System32\Drivers\etc\hosts" -Scope Global
-    Set-Alias -Name boo -Value "C:\Program Files\Microsoft VS Code\Code.exe hihi.txt" -Scope Global    
 }
+
 function tree { wsl tree @args }
 function hosts { code "$env:windir\System32\drivers\etc\hosts" }
+
+# function Get-HistorySaved {return Get-Content (Get-PSReadlineOption).HistorySavePath; }
+function Get-HistorySaved {return Get-Content (Get-PSReadlineOption).HistorySavePath; }
+
+function Fix-Wsl {
+    $processes = Get-Process -Id (Get-NetUDPEndpoint -LocalPort 53).OwningProcess | Select-Object -ExpandProperty Id
+    ForEach ($process in $processes) { Stop-Process -ID $process -Force }
+}
 
 Function Set-PoshGitPromptSettings
 {    
@@ -172,12 +179,17 @@ Function Set-PSReadLinePrefs() {
     Set-PSReadLineKeyHandler -Key ctrl+a    -Function GotoFirstNonBlankOfLine  
 }
 
+Function Enter-VMConnect($vmName) {
+    # Let's you reconfigure resolution after you've chosen "Save my settings for future connections to this virtual machine" when using Hyper-V
+    vmconnect.exe . $vmName /edit
+}
+
 # Other functions
 Function reload {. $PROFILE;}
 
 Add-PersonalAliases
 Set-PSReadLinePrefs
-Set-Location $env:USERPROFILE
+# Set-Location $env:USERPROFILE
 
 ### OLD STUFF. Clean later ###
 # Set-GitOpenSSHWorkaround

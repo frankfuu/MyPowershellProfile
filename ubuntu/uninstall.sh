@@ -12,6 +12,7 @@ unlink ~/.zsh_aliases
 unlink ~/.zsh_functions
 unlink ~/.vimrc
 unlink ~/.tmux.conf
+unlink ~/youtube-dl.conf
 unlink ~/.config/conky/conky.conf
 
 echo Uninstall complete.

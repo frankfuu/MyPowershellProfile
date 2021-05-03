@@ -14,6 +14,18 @@ alias azd='docker run -v ${HOME}:/root -t --rm mcr.microsoft.com/azure-cli az'
 alias large='gsettings set org.gnome.desktop.interface text-scaling-factor 1.23' 
 alias small='gsettings set org.gnome.desktop.interface text-scaling-factor 1' 
 
+alias youtube-dl='docker run \
+                  --rm -i \
+                  -e PGID=$(id -g) \
+                  -e PUID=$(id -u) \
+                  -v ~/youtube-dl.conf:/etc/youtube-dl.conf:ro \
+                  -v "$(pwd)":/workdir:rw \
+                  frankfuu/docker-youtube-dl'
+
+alias yt=youtube-dl
+
+alias bro="docker run -it --rm frankfuu/bropages bro "
+alias glances="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --network host -it docker.io/nicolargo/glances"
 
 # MacOS conditionals
 if [[ $(uname -s) == Darwin ]]

@@ -1,4 +1,5 @@
 ## Setup
+Refer to this [useful guide](https://github.com/sb2nov/mac-setup)
 
 - Iterm2
 - Brew
@@ -28,3 +29,7 @@ Info - I installed Azure CLI using [brew as described here](https://docs.microso
 2. Enable bash autocompletions in zsh (if it's not enabled already) [1]: 
 `autoload -U +X bashcompinit && bashcompinit`
 3. `source /path/to/az.completion` (you will likely want this in your startup file for zsh also).
+
+
+## iTerm Profile
+Refer to iterm-default.json . This basically gives you traditional key bindings like alt+b to navigate back a word etc.

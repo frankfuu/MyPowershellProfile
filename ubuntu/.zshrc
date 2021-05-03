@@ -24,10 +24,11 @@ if [[ "$OSTYPE" != "darwin"* ]] && grep -q Microsoft /proc/version; then
 fi
 
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then		
-        ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-        source /etc/profile.d/vte.sh
-fi
+# commenting this out for now
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then		
+#        ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+#        source /etc/profile.d/vte.sh
+#fi
 
 # Load fzf if installed
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
