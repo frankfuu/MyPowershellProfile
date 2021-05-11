@@ -33,3 +33,4 @@ Info - I installed Azure CLI using [brew as described here](https://docs.microso
 
 ## iTerm Profile
 Refer to iterm-default.json . This basically gives you traditional key bindings like alt+b to navigate back a word etc.
+To do this, head over to `Preferences > Profiles > Other Actions > Import JSON Profiles` then choose `iterm-default.json` then set that as Default
